@@ -3,7 +3,7 @@ from geopy.geocoders import Nominatim
 
 def apifetch():
     url = ("http://api.open-notify.org/iss-now.json")
-    response = requests.get(url,timeout=7)
+    response = requests.get(url,timeout=5)
     if response.status_code == 200:
         print("API IS ONLINE")
     else:
