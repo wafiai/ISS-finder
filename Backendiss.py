@@ -2,7 +2,7 @@ import requests
 from geopy.geocoders import Nominatim
 
 def apifetch():
-    url = ("http://api.open-notify.org/iss-now.json")
+    url = ("https://api.wheretheiss.at/v1/satellites/25544")
     response = requests.get(url,timeout=15)
     if response.status_code == 200:
         print("API IS ONLINE")
@@ -10,8 +10,8 @@ def apifetch():
         print("API SEEMS TO BE CAUSING ERORS", response.status_code)
     data = response.json()
     time = data["timestamp"]
-    lat =  float(data["iss_position"]["latitude"])
-    long = float(data["iss_position"]["longitude"])
+    lat =  float(data["latitude"])
+    long = float(data["longitude"])
     position = (lat,long)
     return position,time 
 
